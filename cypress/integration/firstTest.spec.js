@@ -77,17 +77,18 @@ describe('Our first suit', () => { //also can be used "context"
         cy.contains('Forms').click() 
         cy.contains('Form Layouts').click()
 
-        cy.contains('nb-card', 'Using the Grid').find('[for="inputEmail1"]').should('contain', 'Email')
-        cy.contains('nb-card', 'Using the Grid').find('[for="inputPassword2"]').should('contain', 'Password')
+        // cy.contains('nb-card', 'Using the Grid').find('[for="inputEmail1"]').should('contain', 'Email')
+        // cy.contains('nb-card', 'Using the Grid').find('[for="inputPassword2"]').should('contain', 'Password')
 
-        cy.contains('nb-card', 'Basic form').find('[for="exampleInputEmail1"]').should('contain', 'Email address')
-        cy.contains('nb-card', 'Basic form').find('[for="exampleInputPassword1"]').should('contain', 'Password')
+        // cy.contains('nb-card', 'Basic form').find('[for="exampleInputEmail1"]').should('contain', 'Email address')
+        // cy.contains('nb-card', 'Basic form').find('[for="exampleInputPassword1"]').should('contain', 'Password')
 
+        // using then methos to remove duplications that we had above to find element
+        // then changes context from Cypress to JQuery format and Chai methods (like expect) should be used instead of cypress method (like should)
         cy.contains('nb-card', 'Using the Grid').then(firstForm => {
-            const emailLabelFirst = firstForm.find('[for="inputEmail1"]').text()
+            const emailLabelFirst = firstForm.find('[for="inputEmail1"]').text() // created a variable in which we put text from the label
             const passwordLabelFirst = firstForm.find('[for="inputPassword2"]').text()
-
-            expect(emailLabelFirst).to.equal('Email')
+            expect(emailLabelFirst).to.equal('Email') // asserted whether text in variable equals to `Email`
             expect(passwordLabelFirst).to.equal('Password')
 
             cy.contains('nb-card', 'Basic form').then(secondForm => {
@@ -95,6 +96,7 @@ describe('Our first suit', () => { //also can be used "context"
                 expect(passwordLabelFirst).to.equal(passwordLabelSecond)
             })
 
+            //wrap method changes contect back to Cypress from JQuery
             cy.wrap(secondForm).find('[for="exampleInputPassword1"').should('contain', 'Password')
         })
     })
