@@ -13,7 +13,7 @@
 
 describe('Our first suit', () => { //also can be used "context"
     
-    it ('first test', () => {
+    it ('locators - 10 lesson', () => {
 
         cy.visit('/') //open needed page in app
         cy.contains('Forms').click() //clicks on nav menu -> Forms
@@ -23,7 +23,7 @@ describe('Our first suit', () => { //also can be used "context"
         cy.get('input')
 
         // ID
-       // cy.get('#imputEmail1') // for id # needs to be added
+        cy.get('#imputEmail1') // for id # needs to be added
 
         // class name
         cy.get('.input-full-width') // for class . needs to be added; van be added only 1 class value
@@ -44,14 +44,14 @@ describe('Our first suit', () => { //also can be used "context"
         cy.get('[placeholder="Email"][fullwidth]') 
 
         // tag name + attribute and value + id + class name
-       // cy.get('input[placeholder="Email"]#imputEmail1.input-full-width')
+        cy.get('input[placeholder="Email"]#imputEmail1.input-full-width')
 
         // The most Recommend way by Cypress - create attributes for it
         cy.get('[data-cy="imputEmail1"]')
 
     })
 
-    it ('second test', () => {
+    it ('finding element - 11 lesson', () => {
 
         cy.visit('/') 
         cy.contains('Forms').click() 
@@ -72,7 +72,7 @@ describe('Our first suit', () => { //also can be used "context"
         .click()
     })
 
-    it('then and wrap methods', () => {
+    it('then and wrap methods - 12 lesson', () => {
         cy.visit('/') 
         cy.contains('Forms').click() 
         cy.contains('Form Layouts').click()
@@ -99,7 +99,7 @@ describe('Our first suit', () => { //also can be used "context"
         })
     })
 
-    it('invoke', () => {
+    it('invoke - 13 lesson', () => {
         cy.visit('/') 
         cy.contains('Forms').click() 
         cy.contains('Form Layouts').click()
@@ -124,7 +124,7 @@ describe('Our first suit', () => { //also can be used "context"
             .should('contain', 'checked')
     })
 
-    it('assert property', () => {
+    it('assert property - 13 lesson', () => {
         cy.visit('/') 
         cy.contains('Forms').click() 
         cy.contains('Datepicker').click()
@@ -137,7 +137,7 @@ describe('Our first suit', () => { //also can be used "context"
             .should('contain', 'Aug 17, 2021')
     })
 
-    it('radio button', () => {
+    it('radio button - 14 lesson', () => {
         cy.visit('/') 
         cy.contains('Forms').click() 
         cy.contains('Form Layouts').click()
@@ -160,7 +160,7 @@ describe('Our first suit', () => { //also can be used "context"
         })
     })
 
-    it('checkboxes', () => {
+    it('checkboxes - 14 lesson', () => {
         cy.visit('/') 
         cy.contains('Modal & Overlays').click() 
         cy.contains('Toastr').click()
@@ -169,7 +169,7 @@ describe('Our first suit', () => { //also can be used "context"
         cy.get('[type="checkbox"').eq(0).click({force:true}) // deactivates the first checkbox on the page as it was activated before
     })
 
-    it('dropdown 1', () => {
+    it('dropdown 1 - 15 lesson', () => {
         cy.visit('/') 
 
         cy.get('nav nb-select').click()
@@ -178,7 +178,7 @@ describe('Our first suit', () => { //also can be used "context"
         cy.get('nb-layout-header nav').should('have.css', 'background-color', 'rgb(34, 43, 69)')
     })
 
-    it.only('dropdown go through the list', () => {
+    it.only('dropdown go through the list - 15 lesson', () => {
         cy.visit('/')
 
         cy.get('nav nb-select').then( dropdown => {
